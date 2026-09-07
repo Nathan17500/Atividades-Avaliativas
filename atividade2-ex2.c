@@ -30,7 +30,8 @@
 typedef enum {
     MOEDA_BRONZE,
     MOEDA_PRATA,
-    MOEDA_OURO
+    MOEDA_OURO,
+    MOEDA_DIAMANTE
 } TipoMoeda;
 
 typedef struct {
@@ -48,6 +49,7 @@ Color corDaMoeda(TipoMoeda tipo) {
         case MOEDA_BRONZE: return (Color){160, 90, 40, 255};
         case MOEDA_PRATA:  return (Color){190, 190, 190, 255};
         case MOEDA_OURO:   return GOLD;
+        case MOEDA_DIAMANTE: return (Color){140, 190, 255, 255};
         default:           return WHITE;
     }
 }
@@ -58,6 +60,7 @@ int valorDaMoeda(TipoMoeda tipo) {
         case MOEDA_BRONZE: return 5;
         case MOEDA_PRATA:  return 10;
         case MOEDA_OURO:   return 25;
+        case MOEDA_DIAMANTE: return 50;
         default:           return 0;
     }
 }
@@ -72,10 +75,14 @@ Moeda *criarMoedas(int quantidade) {
         m->pos      = (Vector2){ GetRandomValue(30, LARGURA_JANELA - 30),
                                   GetRandomValue(30, ALTURA_JANELA - 30) };
         m->raio     = 10.0f;
-        m->tipo     = (TipoMoeda)GetRandomValue(MOEDA_BRONZE, MOEDA_OURO);
-        m->valor    = valorDaMoeda(m->tipo);
         m->coletada = false;
-    }
+        if (GetRandomValue(0, 100) < 5) {
+            m->tipo = MOEDA_DIAMANTE;
+        } else {
+            m->tipo = (TipoMoeda)GetRandomValue(MOEDA_BRONZE, MOEDA_OURO);
+        }
+        m->valor    = valorDaMoeda(m->tipo);
+    }    
     return moedas;
 }
 
