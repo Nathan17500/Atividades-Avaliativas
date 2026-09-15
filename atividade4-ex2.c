@@ -169,7 +169,7 @@ int main(void) {
 
             DrawCircleV(jogador, RAIO_JOGADOR, BLUE);
 
-            DrawText("ESPACO atira no inimigo vivo mais proximo", 10, 10, 20, DARKGRAY);
+            DrawText("ESPACO atira no inimigo vivo mais fraco", 10, 10, 20, DARKGRAY);
             DrawText("Setas movem o jogador | ESC sai", 10, ALTURA_JANELA - 25, 16, GRAY);
 
         EndDrawing();
