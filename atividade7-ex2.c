@@ -230,7 +230,7 @@ int main(void) {
                       10, 10, 20, DARKGRAY);
             DrawText(resultado, 10, 34, 18, MAROON);
             DrawText(resultado2, 10, 54, 18, MAROON);
-            DrawText("O ordena (Bubble) | I ordena (Insertion) |N novo alvo | Q busca sequencial | W busca binaria | ESC sai",
+            DrawText("O ordena (Bubble) | I ordena (Insertion) | N novo alvo | Q busca sequencial | W busca binaria | ESC sai",
                       10, ALTURA_JANELA - 25, 16, GRAY);
 
         EndDrawing();
